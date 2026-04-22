@@ -124,7 +124,7 @@ export default function App() {
 
   // AI move
   useEffect(() => {
-    if (mode !== 'pvc' || currentPlayer !== 'O' || result || aiThinking) return;
+    if (mode !== 'pvc' || currentPlayer !== 'O' || result) return;
     setAiThinking(true);
     const timer = setTimeout(() => {
       const newBoard = [...board];
@@ -147,7 +147,7 @@ export default function App() {
       setAiThinking(false);
     }, 400);
     return () => clearTimeout(timer);
-  }, [currentPlayer, mode, result, board, aiThinking]);
+  }, [currentPlayer, mode, result]);
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
